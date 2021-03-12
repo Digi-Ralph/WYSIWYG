@@ -20,7 +20,7 @@ function imgTask() {
 }
 
 function jsTask() {
-  return src('src/javascript/*.js', { sourcemaps: true })
+  return src('./src/javascript/*.js', { sourcemaps: true })
     .pipe(concat('index.js'))
     .pipe(terser())
     .pipe(dest('dist/javascript' , {sourcemaps: '.'}));

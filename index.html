@@ -5,12 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./dist/style/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
     <title>Document</title>
 </head>
 <body>
-    <div class="gulp">This is a Test</div>
-    <div class="try">test</div>
+    <main class="wrapper">
+        <article class="sub-container">
+            <div class="title-container" contenteditable >
+                <h1 class="layout-title">
+                    <span class="placeholder-title" placeholder = "Title"></span>
+                    <br>
+                </h1>
+            </div>
+            <div class="text-container" contenteditable id="block_one" >
+                <p class="layout-text" data-placeholder="something" >
+                    <br>
+                </p>
+            </div>
+            <div id="tooltip" aria-hidden="true">Hey ✌️</div>
+        </article>
+    </main>
 </body>
-<script src="./src/javascript/index.js"></script>
-<script src="./src/javascript/javascript.js"></script>
+<script src="/dist/javascript/index.js"></script>
 </html>

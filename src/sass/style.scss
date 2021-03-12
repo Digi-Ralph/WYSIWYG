@@ -1,19 +1,119 @@
-
-
-
-
-
-.gulp {
-    color: red;
-    width: 100px;
-    height: 100px;
-    background-color: rebeccapurple;
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.try {
-    color: green;
-    width: 50%;
-    background: black;
-    height: 50%;
-    margin: 0 auto;
-    
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.938);
+
+    .sub-container {
+        max-width: 1000px;
+        width: 700px;
+
+        .title-container {
+            padding: 5em 5em 1em 5em;
+            outline: none;
+
+            .layout-title {
+                border: 2px solid rgba(0, 0, 0, 0.507);
+                word-break: break-word;
+                font-size: 2rem;
+                padding: 1em;
+                border-radius: 5px;
+                line-height: 1.4em;
+                position: relative;
+                z-index: 99;
+
+                &::selection {
+                    background-color: rgba(45, 170, 219, 0.3);
+                }
+
+                .placeholder-title {
+                    position: absolute;
+                    color: rgba(180, 180, 180, 0.692);
+                    z-index: 1;
+
+                    &:empty::before {
+                        content: attr(placeholder);
+                    }
+                }
+
+            }
+
+        }
+
+        .text-container {
+            border: 2px dashed purple;
+            padding: 1em 5em 1em 5em;
+            outline: none;
+
+            .layout-text {
+                word-break: break-word;
+                border: 1px solid red;
+                margin-top: 1em;
+                line-height: 1.4em;
+
+                &::selection {
+                    background-color: rgba(45, 170, 219, 0.3);
+                }
+
+                &:active {
+                    outline: 5px solid rgba(45, 170, 219, 0.3);
+                    ;
+                }
+
+                .placeholder-text {
+                    position: absolute;
+                    color: rgba(180, 180, 180, 0.692);
+                    z-index: 1;
+
+                    &:empty::before {
+                        content: attr(placeholder);
+                    }
+                }
+            }
+        }
+
+        #tooltip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4rem;
+            display: none;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.911);
+            /* opacity: 1; */
+            color: white;
+            border-radius: 0.25rem;
+            padding: 0.4rem;
+            font-size: 0.8rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: all 0.2s ease-in;
+        }
+
+        #tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.911) transparent transparent transparent;
+        }
+    }
 }
