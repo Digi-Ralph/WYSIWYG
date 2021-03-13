@@ -90,16 +90,17 @@ body {
             position: absolute;
             top: 0;
             left: 0;
-            width: 4rem;
+            width: 19rem;
             display: none;
             z-index: 9999;
-            background: rgba(0, 0, 0, 0.911);
+            // background: rgba(0, 0, 0, 0.911);
+            background-color: black;
             /* opacity: 1; */
             color: white;
             border-radius: 0.25rem;
-            padding: 0.4rem;
-            font-size: 0.8rem;
-            text-align: center;
+            // padding: 0.4rem;
+            // font-size: 0.8rem;
+            // text-align: center;
             text-transform: uppercase;
             font-weight: 700;
             transition: all 0.2s ease-in;
@@ -113,6 +114,7 @@ body {
             margin-left: -5px;
             border-width: 5px;
             border-style: solid;
+            // background-color: black;
             border-color: rgba(0, 0, 0, 0.911) transparent transparent transparent;
         }
     }
