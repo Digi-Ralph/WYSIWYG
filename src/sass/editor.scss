@@ -1,0 +1,60 @@
+// Tooltip Editor Text 
+.editor {
+    padding: 0.8em;
+
+    .s1 {
+        display: flex;
+        gap: 0.5em;
+
+        &>div {
+            width: 2em;
+            height: 2em;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                background-color: rgb(37, 36, 36);
+            }
+
+            &>i {
+                padding: 0.5em;
+                font-size: 1em;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .br {
+        height: 30px;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 0 0.5em 0 0.5em;
+    }
+
+    .s2 {
+        display: flex;
+        gap: 0.5em;
+
+        &>div {
+            width: 2em;
+            height: 2em;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                background-color: rgb(37, 36, 36);
+            }
+
+            &>i {
+                padding: 0.5em;
+                font-size: 1em;
+                cursor: pointer;
+            }
+
+        }
+    }
+}

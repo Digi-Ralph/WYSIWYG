@@ -7,7 +7,7 @@ const input = e => {
     const nextSpan = h2.firstElementChild.tagName
     const title = h2.innerText.length
     if (title === 1) {
-        const a = `<span class="placeholder-title" placeholder = "Title"></span>`
+        const a = `<span class="placeholder-title" placeholder = "Untitled"></span>`
         titleLayout.insertAdjacentHTML('afterbegin', a)
         return
     } else if (title > 1 && nextSpan === "SPAN") {
@@ -17,33 +17,22 @@ const input = e => {
 
 }
 
-const stopDefault = e => {
-    const x = h2.innerText.valueOf().length
-    if ((e.key == 'Backspace' || e.key == "Delete") && x < 2 ) {
-        e.preventDefault()
-    }
 
-}
 
 const blockCretChange = (e) => {
     if (e.key === 'Enter') {
-     
-       document.querySelector('#block_one').focus()
-    
-    
-        // console.log(p)
+        e.preventDefault()
+        document.querySelector('#block_one').focus()
     }
 }
-containertitle.addEventListener('input', input)
-containertitle.addEventListener('keydown', stopDefault)
-containertitle.addEventListener('keydown', blockCretChange)
+
 
 
 //
 function getCaretCoordinates() {
     let x = 0,
         y = 0;
-        width = 0;
+    width = 0;
     const isSupported = typeof window.getSelection !== "undefined";
     if (isSupported) {
         const selection = window.getSelection();
@@ -78,10 +67,10 @@ function toggleTooltip() {
     const tooltip = document.getElementById("tooltip");
     const stringLength = window.getSelection().toString().length
     if (stringLength > 0) {
-        let scrollTop = 
-        (window.pageYOffset !== undefined) ? window.pageYOffset : 
-        (document.documentElement || document.body.parentNode || document.body).scrollTop;
-            const {
+        let scrollTop =
+            (window.pageYOffset !== undefined) ? window.pageYOffset :
+            (document.documentElement || document.body.parentNode || document.body).scrollTop;
+        const {
             x,
             y,
             width
@@ -89,16 +78,60 @@ function toggleTooltip() {
         tooltip.setAttribute("aria-hidden", "false");
         tooltip.setAttribute(
             "style",
-            `display: inline-block; 
-            left:${(x + (width / 2)) - 32}px; 
-            top: ${(y + scrollTop) - 36}px;
+            `display: flex;
+            justify-content: space-evenly;
+            align-items: center; 
+            left:${(x + (width / 2)) - 140}px; 
+            top: ${(y + scrollTop) - 65}px;
             `
-            );
-        } else {
-            tooltip.setAttribute("aria-hidden", "true");
-            tooltip.setAttribute("style", "display: none;");
-        }
+        );
+    } else {
+        tooltip.setAttribute("aria-hidden", "true");
+        tooltip.setAttribute("style", "display: none;");
+    }
 }
 
-document.addEventListener("mouseup", (e) => toggleTooltip());
 
+
+
+const textcontainer = document.querySelector('.text-container')
+const layouttext = document.querySelector('.layout-text')
+const placeholdertext = document.querySelector('.placeholder-text')
+
+
+const holderText = () => {
+    const innerLength = textcontainer.firstElementChild.innerText.valueOf().length
+    const nextSpan = layouttext.firstElementChild.tagName
+    if (innerLength === 1) {
+        const a = `<span class="placeholder-text" placeholder = "Write Your Story"></span>`
+        layouttext.insertAdjacentHTML('afterbegin', a)
+        return
+    } else if (innerLength > 1 && nextSpan === "SPAN") {
+        layouttext.firstElementChild.remove()
+        return
+    }
+}
+
+const stopDefault = e => {
+    const x = h2.innerText.valueOf().length
+  
+    // layouttext.textContent.length // 
+    if ((e.key == 'Backspace' || e.key == "Delete") && x < 2) {
+        e.preventDefault()
+    }  
+
+}
+const stopDefaultText = e => {
+    const innerLength = textcontainer.firstElementChild.innerText.valueOf().length
+    console.log(innerLength)
+    if ((e.key == 'Backspace' || e.key == "Delete") && innerLength === 1) {
+        e.preventDefault()
+    }
+}
+
+containertitle.addEventListener('input', input)
+containertitle.addEventListener('keydown', stopDefault)
+containertitle.addEventListener('keydown', blockCretChange)
+textcontainer.addEventListener('input', holderText)
+textcontainer.addEventListener('keydown', stopDefaultText)
+document.addEventListener("mouseup", (e) => toggleTooltip());

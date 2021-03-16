@@ -7,25 +7,41 @@
     <link rel="stylesheet" href="./dist/style/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
-    <title>Document</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <title>IDIA Editor</title>
 </head>
 <body>
     <main class="wrapper">
         <article class="sub-container">
-            <div class="title-container" contenteditable >
+            <div class="title-container" contenteditable='true' spellcheck="false" >
                 <h1 class="layout-title">
-                    <span class="placeholder-title" placeholder = "Title"></span>
+                    <span class="placeholder-title" placeholder = "Untitled"></span>
                     <br>
                 </h1>
             </div>
-            <div class="text-container" contenteditable id="block_one" >
+            <div class="text-container" contenteditable="true" spellcheck="false" id="block_one" >
                 <p class="layout-text" data-placeholder="something" >
+                    <span class="placeholder-text" placeholder = "Write Your Story"></span>
                     <br>
                 </p>
             </div>
-            <div id="tooltip" aria-hidden="true">Hey ✌️</div>
+            <!-- EDITOR  -->
+            <!-- Hey ✌️ -->
+            <div id="tooltip" aria-hidden="true" class="editor">
+                <div class="s1">
+                    <div id="bold"><i class="fas fa-bold"></i></div>
+                    <div id="italic"><i class="fas fa-italic"></i></div>
+                    <div id="underline"><i class="fas fa-underline"></i></div>
+                </div>
+                <div class="br"></div>
+                <div class="s2">
+                    <div id="highlighter"><i class="fas fa-highlighter"></i></div>
+                    <div id="link"><i class="fas fa-link"></i></div>
+                </div>
+            </div>
+            <!-- EDITOR -->
         </article>
     </main>
-</body>
+</body>  
 <script src="/dist/javascript/index.js"></script>
 </html>
